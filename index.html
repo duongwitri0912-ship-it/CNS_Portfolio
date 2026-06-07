@@ -1385,6 +1385,14 @@ function exportPortfolio() {
           transition: none !important;
         }
 
+        /* Giữ màu sắc, hình nền và hiệu ứng giao diện tối khi xuất PDF */
+        html, body {
+          background: #0a0a0f !important;
+          color: #f0f0f5 !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+
         /* KHẮC PHỤC 1: Khôi phục nút bấm & Cuộn xuống. Chỉ ẩn nhiễu nền, trỏ chuột và thông báo Toast */
         body::before, .cursor, .cursor-ring, #progressBar, .toast {
           display: none !important;
@@ -1411,8 +1419,22 @@ function exportPortfolio() {
           margin-bottom: 32px !important;
         }
 
-        /* Ẩn 6 thẻ bài tập thu gọn, bật chi tiết */
-        .projects-grid { display: none !important; }
+        /* --- THAY ĐỔI TẠI ĐÂY: Hiển thị danh sách 6 bài tập thu gọn và ngắt trang --- */
+        .projects-grid { 
+          display: grid !important; /* Giữ lại layout dạng lưới khi in */
+          page-break-after: always !important; /* Ép buộc ngắt trang ngay sau khi in xong danh sách này */
+          break-after: page !important;
+        }
+        
+        /* Đảm bảo các thẻ bài tập nhỏ không bị cắt đôi nếu nằm ở rìa trang giấy */
+        .project-card {
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
+          background: var(--surface) !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+
         #print-details { display: block !important; margin-top: 20px; }
 
         /* Định dạng hiển thị thẻ bài tập chi tiết trên PDF */
@@ -1429,17 +1451,17 @@ function exportPortfolio() {
         .print-card h4 { color: var(--text); margin-top: 24px; margin-bottom: 12px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; font-family: 'Space Mono', monospace; border-bottom: 1px dashed var(--border); padding-bottom: 8px; }
         .print-card p, .print-card ul { color: var(--text2); font-size: 14px; line-height: 1.8; }
         .print-card ul { padding-left: 20px; }
-        .print-card li { margin-bottom: 12px; } /* Tăng khoảng cách các dòng chữ */
+        .print-card li { margin-bottom: 12px; }
 
         /* KHẮC PHỤC 2: Định dạng riêng biệt cho đường link để to, rõ và màu xanh nổi bật */
         .print-link-name {
-          color: #3b82f6 !important; /* Màu xanh dương sáng nổi bật */
+          color: #3b82f6 !important;
           text-decoration: underline !important;
           font-size: 16px !important;
           font-weight: 700 !important;
         }
         .print-link-url {
-          color: #60a5fa !important; /* Màu xanh nhạt cho đường dẫn gốc */
+          color: #60a5fa !important;
           font-size: 13px !important;
           word-break: break-all;
           display: block;
@@ -1455,12 +1477,11 @@ function exportPortfolio() {
   if (!printContainer) {
     printContainer = document.createElement('div');
     printContainer.id = 'print-details';
-    printContainer.style.display = 'none'; // Chỉ hiện khi in
+    printContainer.style.display = 'none';
 
     let html = '';
     projects.forEach(p => {
       const files = p.links || [];
-      // HTML được gắn class mới cho đường link
       let filesHtml = files.map(f => `<li><a href="${f.url}" class="print-link-name">${f.name}</a><span class="print-link-url">${f.url}</span></li>`).join('');
       if (!filesHtml) filesHtml = '<li>⭕ Chưa có tệp đính kèm.</li>';
 
@@ -1491,7 +1512,6 @@ function exportPortfolio() {
   showToast('🖨️ Đang chuẩn bị nội dung chi tiết & Mở hộp thoại in...');
   setTimeout(() => window.print(), 800);
 }
-
 // Keyboard ESC
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModal();
