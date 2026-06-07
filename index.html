@@ -403,6 +403,7 @@
     background: var(--surface);
     border: 1px solid var(--border);
     padding: 36px;
+    padding-bottom: 80px;
     transition: all 0.3s ease;
     position: relative; overflow: hidden;
     cursor: pointer;
@@ -456,15 +457,28 @@
     letter-spacing: 1px;
   }
   .project-arrow {
-    position: absolute; bottom: 32px; right: 32px;
-    width: 36px; height: 36px;
-    background: var(--border);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 16px; opacity: 0;
-    transition: opacity 0.3s, background 0.3s;
+    position: absolute; bottom: 32px; left: 36px; right: 36px; /* Căn chỉnh cho đều */
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px; font-weight: 700;
+    color: var(--text3); /* Màu xám nhạt mặc định */
+    text-transform: uppercase; letter-spacing: 1px;
+    opacity: 1; /* Luôn luôn hiển thị */
+    transition: color 0.3s;
+    border-top: 1px dashed var(--border); /* Thêm đường kẻ ngang mỏng phân cách */
+    padding-top: 16px;
   }
-  .project-card:hover .project-arrow { opacity: 1; background: var(--accent); color: #0a0a0f; }
+  .project-arrow span {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+  }
+  /* Hiệu ứng khi hover vào thẻ */
+  .project-card:hover .project-arrow { 
+    color: var(--accent); /* Đổi chữ thành màu xanh neon */
+  }
+  .project-card:hover .project-arrow span { 
+    transform: translateX(5px); /* Mũi tên dịch nhẹ sang phải */
+  }
 
   /* PROJECT MODAL */
   .modal-overlay {
@@ -964,7 +978,7 @@
         <span class="p-tag">File System</span>
         <span class="p-tag">Tổ chức dữ liệu</span>
       </div>
-      <div class="project-arrow">→</div>
+      <div class="project-arrow">Xem chi tiết <span>→</span></div>
     </div>
 
     <div class="project-card fade-in" onclick="openModal(1)">
@@ -976,7 +990,7 @@
         <span class="p-tag">Research</span>
         <span class="p-tag">Boolean Search</span>
       </div>
-      <div class="project-arrow">→</div>
+      <div class="project-arrow">Xem chi tiết <span>→</span></div>
     </div>
 
     <div class="project-card fade-in" onclick="openModal(2)">
@@ -988,7 +1002,7 @@
         <span class="p-tag">Prompt Engineering</span>
         <span class="p-tag">AI Tools</span>
       </div>
-      <div class="project-arrow">→</div>
+      <div class="project-arrow">Xem chi tiết <span>→</span></div>
     </div>
 
     <div class="project-card fade-in" onclick="openModal(3)">
@@ -1000,7 +1014,7 @@
         <span class="p-tag">Collaboration</span>
         <span class="p-tag">Project Mgmt</span>
       </div>
-      <div class="project-arrow">→</div>
+      <div class="project-arrow">Xem chi tiết <span>→</span></div>
     </div>
 
     <div class="project-card fade-in" onclick="openModal(4)">
@@ -1012,7 +1026,7 @@
         <span class="p-tag">Generative AI</span>
         <span class="p-tag">Content Creation</span>
       </div>
-      <div class="project-arrow">→</div>
+      <div class="project-arrow">Xem chi tiết <span>→</span></div>
     </div>
 
     <div class="project-card fade-in" onclick="openModal(5)">
@@ -1024,7 +1038,7 @@
         <span class="p-tag">AI Ethics</span>
         <span class="p-tag">Academic Integrity</span>
       </div>
-      <div class="project-arrow">→</div>
+      <div class="project-arrow">Xem chi tiết <span>→</span></div>
     </div>
 
   </div>
