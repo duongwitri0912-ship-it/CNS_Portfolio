@@ -189,7 +189,7 @@
 
   /* Photo container — swap the placeholder img src for your real photo */
   .ph-avatar-wrap {
-    width: 88px; height: 88px; flex-shrink: 0;
+    width: 140px; height: 140px; flex-shrink: 0;
     border-radius: 50%;
     overflow: hidden;
     border: 3px solid var(--accent);
@@ -363,6 +363,16 @@
     font-size: 42px; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 8px;
   }
   .stat-label { font-size: 13px; color: var(--text3); letter-spacing: 1px; }
+
+  .project-thumb {
+    width: 100%; height: 160px;
+    object-fit: cover; object-position: center;
+    display: block;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+    background: var(--surface2);
+  }
 
   /* PROJECTS */
   #projects { background: var(--bg); }
@@ -969,6 +979,7 @@
         <div class="info-block-title"><span class="ib-icon">🪪</span> Thông tin cá nhân &amp; Học vấn</div>
         <div class="info-rows">
           <div class="info-row"><span class="ir-label">Họ và tên</span><span class="ir-value">Lê Minh Dương</span></div>
+          <div class="info-row"><span class="ir-label">Ngày sinh</span><span class="ir-value">13/10/2007</span></div>
           <div class="info-row"><span class="ir-label">MSSV</span><span class="ir-value ir-accent">25020094</span></div>
           <div class="info-row"><span class="ir-label">Lớp học phần</span><span class="ir-value">VNU1001_E252015</span></div>
           <div class="info-row"><span class="ir-label">Trường</span><span class="ir-value">ĐH Công nghệ (UET) – ĐHQGHN</span></div>
@@ -1067,6 +1078,8 @@
   <div class="projects-grid">
     <div class="project-card fade-in" onclick="openModal(0)">
       <div class="project-num">BÀI 01 · MỤC 1.4</div>
+      <!-- ĐỔI TÊN ẢNH: thay "bai1.png" thành tên file ảnh của bạn -->
+      <img class="project-thumb" src="bai1.png" alt="Minh họa Bài 1" onerror="this.style.display='none'">
       <div class="project-icon">💻</div>
       <h3>Thao tác cơ bản với tệp tin và thư mục</h3>
       <p>Trình bày cấu trúc thư mục tối ưu và quy tắc đặt tên đã thiết lập, kèm ảnh chụp minh họa.</p>
@@ -1077,6 +1090,8 @@
     </div>
     <div class="project-card fade-in" onclick="openModal(1)">
       <div class="project-num">BÀI 02 · MỤC 2.4</div>
+      <!-- ĐỔI TÊN ẢNH: thay "bai2.png" thành tên file ảnh của bạn -->
+      <img class="project-thumb" src="bai2.png" alt="Minh họa Bài 2" onerror="this.style.display='none'">
       <div class="project-icon">🔍</div>
       <h3>Tìm kiếm và đánh giá thông tin học thuật</h3>
       <p>Trình bày kết quả tìm kiếm bằng toán tử nâng cao và bảng đánh giá nguồn tin đã thực hiện.</p>
@@ -1087,6 +1102,8 @@
     </div>
     <div class="project-card fade-in" onclick="openModal(2)">
       <div class="project-num">BÀI 03 · MỤC 3.4</div>
+      <!-- ĐỔI TÊN ẢNH: thay "bai3.png" thành tên file ảnh của bạn -->
+      <img class="project-thumb" src="bai3.png" alt="Minh họa Bài 3" onerror="this.style.display='none'">
       <div class="project-icon">✍️</div>
       <h3>Viết Prompt hiệu quả cho các tác vụ học tập</h3>
       <p>Trình bày sự so sánh giữa Prompt ban đầu và Prompt cải tiến cùng kết quả đầu ra từ AI.</p>
@@ -1097,6 +1114,8 @@
     </div>
     <div class="project-card fade-in" onclick="openModal(3)">
       <div class="project-num">BÀI 04 · MỤC 4.4</div>
+      <!-- ĐỔI TÊN ẢNH: thay "bai4.png" thành tên file ảnh của bạn -->
+      <img class="project-thumb" src="bai4.png" alt="Minh họa Bài 4" onerror="this.style.display='none'">
       <div class="project-icon">🤝</div>
       <h3>Sử dụng công cụ hợp tác trực tuyến cho dự án nhóm</h3>
       <p>Trình bày minh chứng về việc sử dụng công cụ quản lý dự án nhóm và phối hợp trực tuyến.</p>
@@ -1107,6 +1126,8 @@
     </div>
     <div class="project-card fade-in" onclick="openModal(4)">
       <div class="project-num">BÀI 05 · MỤC 5.4</div>
+      <!-- ĐỔI TÊN ẢNH: thay "bai5.png" thành tên file ảnh của bạn -->
+      <img class="project-thumb" src="bai5.png" alt="Minh họa Bài 5" onerror="this.style.display='none'">
       <div class="project-icon">🎨</div>
       <h3>Sử dụng AI tạo sinh để hỗ trợ sáng tạo nội dung</h3>
       <p>Trưng bày sản phẩm nội dung số hoàn thiện (hình ảnh, video hoặc bài viết) được hỗ trợ bởi AI.</p>
@@ -1117,6 +1138,8 @@
     </div>
     <div class="project-card fade-in" onclick="openModal(5)">
       <div class="project-num">BÀI 06 · MỤC 6.4</div>
+      <!-- ĐỔI TÊN ẢNH: thay "bai6.png" thành tên file ảnh của bạn -->
+      <img class="project-thumb" src="bai6.png" alt="Minh họa Bài 6" onerror="this.style.display='none'">
       <div class="project-icon">⚖️</div>
       <h3>Sử dụng AI có trách nhiệm trong học tập và nghiên cứu</h3>
       <p>Trình bày bộ nguyên tắc cá nhân về sử dụng AI có trách nhiệm dựa trên các nghiên cứu đã thực hiện.</p>
@@ -1359,6 +1382,13 @@
     <div class="fb-course">Nhập môn Công nghệ số</div>
   </div>
 </footer>
+
+<!-- COPYRIGHT BAR -->
+<div style="background:var(--bg); border-top:1px solid var(--border); padding:18px 60px; text-align:center;">
+  <p style="font-size:13px; color:var(--text3); font-family:'Space Mono',monospace; letter-spacing:0.5px;">
+    © 2026 Lê Minh Dương. All rights reserved. | Đại học Công nghệ - ĐHQGHN (UET)
+  </p>
+</div>
 
 <!-- MODAL -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
